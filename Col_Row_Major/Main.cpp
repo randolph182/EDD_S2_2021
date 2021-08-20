@@ -20,6 +20,18 @@ int main(){
         {
             for (int k = 0; k < LONG; k++)
             {
+                chapines[i][j][k] = NULL;
+                
+            }
+        }
+    }
+    
+    for (int i = 0; i < FILAS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            for (int k = 0; k < LONG; k++)
+            {
                 stringstream nPersona;
                 nPersona << CONT;
 
