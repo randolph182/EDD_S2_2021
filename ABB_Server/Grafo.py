@@ -1,4 +1,4 @@
-
+import os
 
 class Grafo:
     def __init__(self):
@@ -11,7 +11,16 @@ class Grafo:
             self.recorrerArbol(raiz,acumuladores)
 
         acumuladores[0] += acumuladores[1] + "\n}"
-        print(acumuladores[0])
+
+        f = open('grafo.dot', 'w')
+        try:
+            f.write(acumuladores[0])
+        finally:
+            f.close()
+
+        prog = "dot -Tsvg  grafo.dot -o grafo.svg"
+        os.system(prog)
+
 
     def recorrerArbol(self, raiz,acum):
 
