@@ -23,7 +23,6 @@ class Arbol_B:
             self.raiz = array_valores[3]
 
 
-
     # flag_pagina = [bool sube_arriba, int mediana, pagina nuevo,P)
     def empujar(self, pagina_actual, valor, flag_pagina):
         camino = [0]  # a que rama irse
@@ -76,7 +75,6 @@ class Arbol_B:
         actual.ramas[k + 1] = rd
         actual.cuenta = actual.cuenta + 1
 
-
     def dividirNodo(self, pagina_actual, valor, rd, camino, flag_pagina):
         posMdna = self.orden / 2 if (camino[0] <= self.orden / 2) else self.orden / 2 + 1
         posMdna = int(posMdna)
@@ -92,9 +90,9 @@ class Arbol_B:
 
         # Es insertada la clave y rama en el nodo que le corresponde
         if camino[0] <= self.orden / 2: # si el camino[0 es menor al minimo de claves que puede haber en la pagina
-            self.meterHoja(copy.deepcopy(pagina_actual),valor, rd, camino[0])
+            self.meterHoja(pagina_actual,valor, rd, camino[0])
         else:
-            self.meterHoja(copy.deepcopy(flag_pagina[2]), valor, rd, camino[0] - posMdna) # se inserta el nuevo alvor que trajimos en el nodo nuevo
+            self.meterHoja(flag_pagina[2], valor, rd, camino[0] - posMdna) # se inserta el nuevo alvor que trajimos en el nodo nuevo
 
         # se extrae la clave media del nodo origen
         flag_pagina[1] = pagina_actual.claves[pagina_actual.cuenta]
